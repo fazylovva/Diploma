@@ -1,0 +1,76 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'main/css/header.css' %}">
+    <link rel="icon" type="image/.ico" sizes="16x16" href="{% static 'main/img/avatar.png' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+    <header>
+        <div class="header_container">
+            <div class="header_main_logo_block">
+                <a href="{% url 'home' %}">
+                    <div class="avatar_logo" style="background-image: url({% static 'main/img/avatar.png' %})"></div>
+                </a>
+                <a href="{% url 'home' %}">
+                    <div class="name_logo" style="background-image: url({% static 'main/img/logo.png' %})"></div>
+                </a>
+            </div>
+            <div class="header_main_list_block">
+                <ul class="list_categories_block">
+                    <li class="list">
+                        <a href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="list">
+                        <a href="{% url 'articles' %}">Articles</a>
+                    </li>
+                    <li class="list">
+                        <a href="{% url 'blog' %}">Blog</a>
+                    </li>
+                    <li class="list">
+                        <a href="{% url 'tests' %}">Tests</a>
+                    </li>
+                </ul>
+                <ul class="list_account_block">
+                    {% if user.is_authenticated %}
+                        <li class="list_account_auth" id="list_account_auth">
+                            <h1 style="color: #FFF;">{{ user.email }}</h1>
+                        </li>
+
+                    {% else %}
+                        <li class="list_account_auth">
+                            <a href="{% url 'sign-in' %}" style="color: #FFF;">Sign in</a>
+                        </li>
+                    {% endif %}
+                    <li class="open_authorization_block" id="open_authorization_block">
+                        <a href="{% url 'profile' %}" style="color: #FFF;">Profile</a>
+                        <a href="{% url 'sign-out' %}" style="color: #FFF;">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+</body>
+
+<script>
+    const clickButton = document.getElementById('list_account_auth');
+    const openBlock = document.getElementById('open_authorization_block');
+    let test = false;
+
+    clickButton.addEventListener('click', () => {
+        if (test == false) {
+            openBlock.style.display = 'flex';
+            test = true;
+        } else {
+            openBlock.style.display = 'none';
+            test = false;
+        }
+    })
+</script>
+
+</html>

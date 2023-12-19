@@ -1,0 +1,100 @@
+.main_maket_block_section_container {
+    width: 100%;
+    height: 700px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.title_main_maket_block {
+    padding-top: 230px;
+    font-family: 'Saira Condensed', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.title_main_maket_block h1 {
+    color: #949494;
+    font-size: 64px;
+}
+
+.title_main_maket_block p {
+    color: #A46A90;
+    font-size: 48px;
+    line-height: 76px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.description_title_main_maket {
+    color: #000;
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 47px;
+}
+
+.main_article_data_block_section_container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+}
+
+.article_data_block {
+    margin-top: 75px;
+    width: 475px;
+    display: flex;
+    flex-direction: column;
+}
+
+.image_article_data_block {
+    width: 475px;
+    height: 300px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.title_article_data_block {
+    margin: 12px 0;
+}
+
+.title_article_data_block a {
+    color: #000;
+    font-family: 'Saira Condensed', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 50px;
+}
+
+.summary_article_data_block p {
+    font-family: 'Saira Condensed', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 25px;
+}
+
+.author_date_article_data_block {
+    margin-top: 12px;
+    width: 475px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.author_date_article_data_block p {
+    font-family: 'Saira Condensed', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 31px;
+    text-align: right;
+}

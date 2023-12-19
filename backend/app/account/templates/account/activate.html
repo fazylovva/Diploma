@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'account/css/activate.css' %}">
+    <link rel="icon" type="image/.ico" sizes="16x16" href="{% static 'main/img/avatar.png' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Diary - Activate email</title>
+</head>
+<body>
+    <section>
+        <div class="sign-up_container">
+            <div class="main_block_sign-up_container">
+                <div class="title_main_block">
+                    <h1>Activate email</h1>
+                    <p>Women's Diary</p>
+                </div>
+                <div class="input_forms_sign-up">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="position-relative">
+                            <label>
+                                <input type="text" placeholder="Activation code" name="code" class="form_input_password">
+                            </label>
+                        </div>
+
+                        <div class="check_validate_account">
+                            {% for message in messages %}
+                                <p>{{ message }}</p>
+                            {% endfor %}
+                        </div>
+
+                        <button type="submit" class="form_sign_up_button" id="submit_button">Activate</button>
+                    </form>
+                </div>
+                <div class="have_account_sign-in">
+                    <p>Enter another <a href="{% url 'sign-up' %}">Email</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="image_container">
+        </div>
+    </section>
+</body>
+</html>

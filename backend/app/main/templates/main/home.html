@@ -1,0 +1,125 @@
+<!doctype html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <link rel="icon" type="image/.ico" sizes="16x16" href="{% static 'main/img/avatar.png' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Women's Diary - Home page</title>
+</head>
+<body>
+    <header>
+        {% include 'main/header.html' %}
+    </header>
+
+    <section>
+        <div class="section_container">
+
+            <div class="main_maket_block_section_container">
+                <div class="mySlides background_image_main_maket_block active">
+                    <img src="{% static 'main/img/homepage.png' %}" alt="">
+                </div>
+                <div class="mySlides background_image_main_maket_block">
+                    <img src="{% static 'main/img/homepage2.png' %}" alt="">
+                </div>
+                <div class="wrapper">
+                    <div class="title_main_maket_block">
+                        <h1>Greatness is within us</h1>
+                        <p>Knowledge and self love</p>
+                        {% if user.is_authenticated %}
+                        {% else %}
+                            <a href="{% url 'sign-in' %}" class="join_us_title_main_maket">JOIN US</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="about_us_block_section_container">
+                <div class="wrapper">
+                    <div class="about_us_flex_block">
+                        <div class="main_icon_about_us_block">
+                            <i>
+                                <svg width="481" height="421" viewBox="0 0 481 421" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_37_241)">
+                                        <path d="M480.218 420.203H280.715L195.444 375.434L206.869 370.551L195.444 368.92L137.918 420.203H271.74C276.624 400.335 281.189 379.143 285.2 356.708C288.769 336.761 291.592 317.594 293.77 299.32C287.14 269.922 273.257 242.641 253.38 219.953C241.732 203.845 234.81 184.82 233.39 165.009C238.138 162.127 241.843 157.813 243.97 152.69C246.097 147.568 246.535 141.903 245.22 136.516H213.793L219.503 159.716C221.388 148.66 219.822 137.293 215.019 127.153C200.606 115.896 184.107 107.59 166.468 102.71C156.252 98.7618 150.457 93.4799 147.021 89.2767C142.605 83.8726 140.581 78.3994 133.172 73.5373C127.697 69.9612 124.288 69.9771 123.377 70.009C118.897 70.1737 117.4 72.7562 112.053 74.7914C104.985 77.4483 101.48 75.2856 97.5381 76.529C92.6005 78.0859 87.1515 84.9779 85.2873 108.821C85.0211 116.466 85.6612 124.116 87.1942 131.612C89.117 141.012 90.8854 142.468 92.6325 151.963C95.1359 165.561 92.2809 166.752 95.0826 176.109C98.172 186.46 104.186 193.437 107.333 197.003C110.529 200.664 114.79 205.505 120.943 208.693C138.632 217.891 162.489 208.693 162.271 205.962C162.137 204.033 149.487 200.839 140.784 204.899C138.823 205.808 136.943 207.142 133.715 207.344C129.396 207.615 127.702 205.542 124.192 206.531C121.917 207.168 119.105 209.023 119.025 211.143C118.977 212.471 120.021 213.566 127.185 218.194C132.41 221.574 135.052 223.269 136.432 223.625C142.435 225.161 147.804 222.886 150.036 221.723C153.742 219.762 156.773 216.737 158.739 213.04" stroke="white" stroke-width="3" stroke-miterlimit="10"/>
+                                        <path d="M114.258 211.409C116.804 214.841 120.506 219.81 125.001 225.788C137.843 242.872 138.765 243.711 139.958 244.508C156.06 255.295 186.511 235.268 188.099 234.199C209.522 219.804 217.447 197.997 220.196 188.613C209.861 206.11 196.716 221.796 181.286 235.044C174.323 241.01 166.917 246.442 159.133 251.294L44.0818 408.401C54.9584 394.877 58.3993 383.134 59.6191 375.216C62.49 356.523 55.4112 343.132 57.2861 320.171C57.5311 317.131 58.4419 311.138 60.2582 299.155C61.5313 290.786 61.8562 289.271 62.9854 287.656C68.5462 279.632 84.696 281.646 92.3608 283.044L123.254 300.266L129.481 291.764L103.632 274.903C93.8574 272.111 83.458 272.395 73.8514 275.716L101.187 270.833C112.994 273.442 123.683 279.683 131.745 288.676L138.035 280.084L131.777 271.917C127.278 268.926 122.033 267.242 116.63 267.054C111.227 266.867 105.878 268.182 101.181 270.854C112.713 265.859 125.746 265.565 137.492 270.036C137.95 270.105 144.102 270.928 148.091 266.364C149.856 264.285 150.823 261.648 150.819 258.924C132.921 251.115 113.751 246.614 94.2411 245.64L121.576 247.266C122.546 244.354 123.574 241.283 123.616 241.299C123.659 241.315 121.768 244.561 122.801 247.266C124.314 251.225 131.99 253.749 136.118 250.794C137.067 250.092 137.818 249.157 138.296 248.079C137.066 249.875 137.044 251.119 137.231 251.878C137.998 255.444 144.917 257.819 154.643 257.458C154.096 255.237 153.549 253.016 153.003 250.794C140.076 238.164 124.458 228.61 107.312 222.844C96.2296 225.826 85.3309 229.451 74.6717 233.7C57.5844 240.523 48.8756 244.094 40.9445 252.149C32.3529 260.869 28.5765 270.259 26.5311 275.488C22.7003 285.291 20.8887 295.764 21.2047 306.281C14.5134 300.321 9.21745 292.966 5.69206 284.738C2.16667 276.509 0.498016 267.608 0.804295 258.664C4.45115 247.756 11.0147 238.048 19.7867 230.588C28.5587 223.128 39.2062 218.2 50.5801 216.334C50.9849 222.169 51.3915 228.002 51.7998 233.833C44.9419 225.733 39.9312 216.244 37.1148 206.02C25.8014 163.951 58.8894 127.318 62.4101 123.535L64.4502 146.735C55.583 143.754 47.8899 138.048 42.4739 130.436C37.0579 122.824 34.1973 113.697 34.3024 104.363C34.6859 101.902 37.9617 82.9534 55.6508 73.0113C68.7859 65.6358 81.7132 67.8091 85.2979 68.5371L75.5079 83.5964C73.6931 76.3689 73.4172 68.842 74.6983 61.5016C79.8543 33.057 109.805 10.1812 149.759 1.37624C179.232 -1.34828 208.811 5.35128 234.215 20.5058C246.959 30.4109 257.598 42.7479 265.513 56.7975C273.428 70.8472 278.46 86.3282 280.316 102.338C265.944 103.192 251.522 102.372 237.342 99.8937C182.128 90.2173 145.279 57.6492 128.543 40.4697L108.963 70.1844C111.37 61.2557 114.839 52.6464 119.297 44.5401C127.201 30.2725 137.992 17.7995 150.984 7.91221" stroke="white" stroke-width="3" stroke-miterlimit="10"/>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_37_241">
+                                            <rect width="480.218" height="421" fill="white"/>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </i>
+                        </div>
+                        <div class="main_text_about_us_block">
+                            <h1>About us</h1>
+                            <p>On our site you will find a lot of interesting and useful for you. Our main mission is to help and guide the beautiful half of humanity on how to take care of themselves and love themselves. We provide informative consultations of doctors and their advice for the care of women's health, you can also share useful tips on the blog section, the rest you can see on our site. We solve any questions like: make an appointment with a good gynecologist, buy self-defence products, buy hygiene products with good reviews. And all this in one site, which is our difference from other sites. Don't miss the blogs that will start this week!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="latest_updates_block_section_container">
+                <div class="wrapper">
+                    <div class="latest_updates_data_block">
+                        <div class="main_title_latest_updates_data_block">
+                            <h1>latest creates</h1>
+                        </div>
+                        <div class="main_data_latest_updates_data_block">
+                            <div class="first_data_block_latest_updates">
+                                <div class="main_article_block_first_data">
+                                    <p>
+                                        {{ first_article.summary }}
+                                    </p>
+                                    <a href="{% url 'article-detail' first_article.id %}" class="main_image_block_first_data" style="background-image: url('{{ first_article.image.url }}')"></a>
+                                </div>
+                            </div>
+                            <div class="second_data_block_latest_updates">
+                                <div class="main_article_block_second_data">
+                                    <a href="{% url 'article-detail' second_article.id %}" class="main_image_block_second_data" style="background-image: url('{{ second_article.image.url }}')"></a>
+                                    <p>
+                                        {{ second_article.summary }}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="third_data_block_latest_updates">
+                                <div class="main_article_block_third_data">
+                                    <p>
+                                        {{ third_article.summary }}
+                                    </p>
+                                    <a href="{% url 'article-detail' third_article.id %}" class="main_image_block_third_data" style="background-image: url('{{ third_article.image.url }}')"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        {% include 'main/footer.html' %}
+    </footer>
+
+    <script>
+
+        let slides = document.querySelectorAll('.mySlides');
+        let currentSlide = 0;
+        let slideInterval = setInterval(nextSlide, 5000);
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+    </script>
+
+</body>
+</html>

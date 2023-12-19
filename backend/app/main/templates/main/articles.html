@@ -1,0 +1,59 @@
+<!doctype html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'main/css/articles.css' %}">
+    <link rel="icon" type="image/.ico" sizes="16x16" href="{% static 'main/img/avatar.png' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Women's Diary - Articles page</title>
+</head>
+<body>
+    <header>
+        {% include 'main/header.html' %}
+    </header>
+
+    <section>
+        <div class="section_container">
+
+            <div class="main_maket_block_section_container" style="background-image: url({% static 'main/img/articles.png' %})">
+                <div class="wrapper">
+                    <div class="title_main_maket_block">
+                        <h1>Make your life <span style="color: #A46A90;">colorful</span></h1>
+                        <p>self-care :</p>
+                        <span class="description_title_main_maket">doing the things that make you feel more like yourself</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wrapper">
+                <div class="main_article_data_block_section_container">
+                    {% for article in articles %}
+                        <div class="article_data_block">
+                            <a href="{% url 'article-detail' article.id %}" class="image_article_data_block" style="background-image: url('{{ article.image.url }}')"></a>
+                            <div class="title_article_data_block">
+                                <a href="{% url 'article-detail' article.id %}">{{ article.title }}</a>
+                            </div>
+                            <div class="summary_article_data_block">
+                                <p>{{ article.summary }}</p>
+                            </div>
+                            <div class="author_date_article_data_block">
+                                <p>By Women's Diary, {{ article.formatted_date }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        {% include 'main/footer.html' %}
+    </footer>
+
+</body>
+</html>

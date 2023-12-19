@@ -1,0 +1,120 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inder&family=Saira+Condensed:wght@300;400;500;600;700&display=swap');
+
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            vertical-align: baseline;
+        }
+        a {
+            text-decoration: none;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        body {
+            line-height: 1;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        blockquote, q {
+            quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        svg {
+            display: flex;
+            align-items: center;
+        }
+        .wrapper {
+            padding: 0 150px;
+        }
+
+
+
+        /* GET STARTED */
+
+
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            background-color: #515050;
+            padding: 30px 100px;
+        }
+
+        .title {
+            font-family: 'Saira Condensed', sans-serif;
+            font-style: normal;
+            font-size: 24px;
+            font-weight: 700;
+            color: #FFF;
+        }
+
+        .main_add_post h1 {
+            display: flex;
+            align-items: center;
+            font-family: 'Saira Condensed', sans-serif;
+            font-style: normal;
+            font-size: 20px;
+            font-weight: 300;
+            margin: 10px 0;
+            color: #FFF;
+        }
+
+        .main_add_post span {
+            color: #FFF;
+            font-weight: 700;
+            margin-left: 10px;
+        }
+
+        .main_add_post img {
+            margin: 20px 0;
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main_add_post">
+            <div class="title">{{ author.email }} wants to add a article</div>
+            <h1>Image: <span>{{ image }}</span></h1>
+            <h1>Title: <span>{{ title }}</span></h1>
+            <h1>Summary: <span>{{ summary }}</span></h1>
+            <h1>Description: <span>{{ description }}</span></h1>
+        </div>
+    </div>
+</body>
+</html>

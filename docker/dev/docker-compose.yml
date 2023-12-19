@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  womens_backend:
+    build:
+      context: ../..
+      dockerfile: docker/dev/BackendDockerfile
+    container_name: womens_backend
+    restart: always
+    env_file:
+      - envs/.env.womens_backend
+    volumes:
+      - ../..:/app
+      - static:/app/static
+      - media:/app/media
+    ports:
+      - "8000:8000"
+    depends_on:
+      womens_db:
+        condition: service_healthy
+    command: python manage.py runserver 0.0.0.0:8000 && python manage.py runserver 0.0.0.0:8000
+
+  womens_db:
+    container_name: womens_db
+    image: postgres:15.2-alpine
+    restart: always
+    env_file:
+      - envs/.env.womens_db
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q" ]
+    ports:
+      - '5432:5432'
+    volumes:
+      - 'womens_db_data:/var/lib/postgresql/data'
+
+  womens_redis:
+    container_name: womens_redis
+    image: "redis:7.0-alpine"
+    restart: always
+    command: redis-server
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/var/lib/redis
+    env_file:
+      - envs/.env.womens_redis
+
+
+volumes:
+  womens_db_data:
+  redis_data:
+  static:
+  media:

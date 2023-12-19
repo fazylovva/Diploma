@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'account/css/sign-in.css' %}">
+    <link rel="icon" type="image/.ico" sizes="16x16" href="{% static 'main/img/avatar.png' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Diary - Sign In</title>
+</head>
+<body>
+    <section>
+        <div class="sign-up_container">
+            <div class="main_block_sign-up_container">
+                <div class="title_main_block">
+                    <h1>Sign In</h1>
+                    <p>Women's Diary</p>
+                </div>
+                <div class="support_sign-up_main_block">
+                    <a href="" class="with_google_sign-up">
+                        <img src="https://preview.keenthemes.com/metronic8/demo16/assets/media/svg/brand-logos/google-icon.svg" alt="logo_google">
+                        Sign in with Google
+                    </a>
+                    <a href="" class="with_apple_sign-up">
+                        <img class="dark_apple_logo" src="https://preview.keenthemes.com/metronic8/demo16/assets/media/svg/brand-logos/apple-black.svg" alt="logo_apple">
+                        <img class="white_apple_logo" src="https://preview.keenthemes.com/metronic8/demo16/assets/media/svg/brand-logos/apple-black-dark.svg" alt="">
+                        Sign in with Apple
+                    </a>
+                </div>
+                <div class="or_just_with_email">
+                    <p>Or with email</p>
+                </div>
+                <div class="input_forms_sign-up">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <label>
+                            <input type="email" placeholder="Email" name="email" class="form_input_username" autocomplete="off">
+                        </label>
+                        <div class="position-relative">
+                            <label>
+                                <input type="password" placeholder="Password" name="password" class="form_input_password">
+                            </label>
+                        </div>
+
+                        <div class="forgot_password">
+                            <a href="{% url 'forgot-password' %}">Forgot password?</a>
+                        </div>
+
+                        <div class="check_validate_account">
+                            {% for message in messages %}
+                                <p>{{ message }}</p>
+                            {% endfor %}
+                        </div>
+
+                        <button type="submit" class="form_sign_up_button" id="submit_button">Sign In</button>
+                    </form>
+                </div>
+                <div class="have_account_sign-in">
+                    <p>Not a Member yet? <a href="{% url 'sign-up' %}">Sign up</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="image_container">
+        </div>
+    </section>
+</body>
+</html>
